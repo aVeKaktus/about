@@ -16,250 +16,305 @@
             --mushroom-brown: #966F33;
             --spore-purple: #800080;
             --earth-tone: #5C4033;
+            --gold: #FFD700;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: linear-gradient(to bottom, #fff8f0, #fff);
         }
 
         .about-hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('mushroom-forest.jpg');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('enchanted-mushroom-forest.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            font-family: 'Philosopher', sans-serif;
+            animation: fadeInUp 1.5s ease;
         }
 
         .about-content {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .about-content h2 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 20px auto;
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .about-card {
-            background: var(--light-bg);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--mushroom-brown), var(--spore-purple));
         }
 
         .about-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .about-card h3 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         .team-section {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--spore-purple));
             color: white;
-            padding: 80px 0;
-            margin-top: 50px;
+            padding: 100px 0;
+            margin-top: 80px;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .team-member {
             text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
         }
 
         .team-member img {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid var(--accent-color);
+            margin-bottom: 30px;
+            border: 8px solid var(--gold);
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
         }
 
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 0 20px;
+        .team-member:hover img {
+            transform: rotate(5deg);
+            box-shadow: 0 0 40px rgba(255,215,0,0.5);
         }
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: var(--mushroom-brown);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
+        .team-member h3 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
+        .team-member p {
+            font-size: 1.2rem;
+            color: var(--gold);
         }
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background: var(--spore-purple);
-            border-radius: 50%;
-            top: 15px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::after {
-            right: -17px;
-        }
-
-        .right::after {
-            left: -17px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
+            .hero-content h1 {
+                font-size: 3rem;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+            .hero-content p {
+                font-size: 1.4rem;
             }
             
-            .right {
-                left: 0;
+            .about-content {
+                padding: 0 20px;
+            }
+            
+            .team-grid {
+                gap: 30px;
             }
         }
     </style>
 </head>
 <body>
     <section class="about-hero">
-        <div>
-            <h1>Our Story</h1>
-            <p>Discovering the Divine Through Fungi</p>
+        <div class="hero-content">
+            <h1>Our Divine Journey</h1>
+            <p>Exploring the Sacred Realm of Fungi</p>
         </div>
     </section>
 
     <div class="about-content">
-        <h2>About God's Mushroom</h2>
-        <p>Founded in 2020, God's Mushroom emerged from a profound appreciation for the mystical and medicinal properties of fungi. Our mission is to connect people with the extraordinary world of mushrooms through carefully curated mystery boxes.</p>
+        <h2>The God's Mushroom Story</h2>
+        <p class="lead" style="text-align: center; font-size: 1.4rem; max-width: 800px; margin: 0 auto 60px;">
+            Born from a divine inspiration and nurtured through passionate dedication, 
+            God's Mushroom stands as a beacon for those seeking to explore the mystical 
+            world of fungi through our carefully curated mystery boxes.
+        </p>
         
         <div class="about-grid">
             <div class="about-card">
-                <h3>Our Vision</h3>
-                <p>To create a global community of mushroom enthusiasts, fostering knowledge, appreciation, and responsible cultivation of fungi.</p>
+                <h3><i class="fas fa-eye" style="color: var(--spore-purple);"></i> Our Vision</h3>
+                <p>We envision a world where the ancient wisdom of mushrooms is accessible to all, 
+                creating a harmonious connection between humanity and the fungal kingdom.</p>
             </div>
             <div class="about-card">
-                <h3>Our Values</h3>
-                <p>Sustainability, education, and the sacred connection between humans and nature guide everything we do.</p>
+                <h3><i class="fas fa-heart" style="color: var(--spore-purple);"></i> Our Values</h3>
+                <p>Rooted in respect for nature, commitment to sustainability, and dedication to 
+                sharing knowledge, our values guide every mystery box we curate.</p>
             </div>
             <div class="about-card">
-                <h3>Our Promise</h3>
-                <p>Every mystery box is thoughtfully curated to provide a unique and enriching experience in mycological discovery.</p>
+                <h3><i class="fas fa-hand-holding-heart" style="color: var(--spore-purple);"></i> Our Promise</h3>
+                <p>Each mystery box is a gateway to discovery, carefully designed to bring wonder, 
+                education, and the magic of mushrooms into your life.</p>
             </div>
         </div>
     </div>
 
     <section class="team-section">
-        <h2 style="text-align: center; margin-bottom: 50px;">Our Expert Team</h2>
+        <h2 style="text-align: center; margin-bottom: 70px; color: white;">Our Mycological Masters</h2>
         <div class="team-grid">
             <div class="team-member">
-                <img src="team-member1.jpg" alt="Team Member">
+                <img src="mycologist1.jpg" alt="Dr. Sarah Mitchell">
                 <h3>Dr. Sarah Mitchell</h3>
-                <p>Head Mycologist</p>
+                <p>Chief Mycologist</p>
             </div>
             <div class="team-member">
-                <img src="team-member2.jpg" alt="Team Member">
+                <img src="expert2.jpg" alt="John Peterson">
                 <h3>John Peterson</h3>
-                <p>Cultivation Specialist</p>
+                <p>Master Cultivator</p>
             </div>
             <div class="team-member">
-                <img src="team-member3.jpg" alt="Team Member">
+                <img src="expert3.jpg" alt="Maria Garcia">
                 <h3>Maria Garcia</h3>
                 <p>Sustainability Director</p>
             </div>
         </div>
     </section>
 
-    <div class="timeline">
-        <div class="timeline-item left">
-            <div class="content">
-                <h3>2020</h3>
-                <p>Founded with a vision to share the wonders of mushrooms</p>
-            </div>
-        </div>
-        <div class="timeline-item right">
-            <div class="content">
-                <h3>2021</h3>
-                <p>Launched our first mystery box subscription service</p>
-            </div>
-        </div>
-        <div class="timeline-item left">
-            <div class="content">
-                <h3>2022</h3>
-                <p>Expanded to international markets</p>
-            </div>
-        </div>
-        <div class="timeline-item right">
-            <div class="content">
-                <h3>2023</h3>
-                <p>Established our mycological research center</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Animation for timeline items
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateX(0)';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.5 });
+        }, observerOptions);
 
-        timelineItems.forEach(item => {
-            item.style.opacity = 0;
-            item.style.transform = item.classList.contains('left') ? 
-                'translateX(-100px)' : 'translateX(100px)';
-            item.style.transition = 'all 0.5s ease-in-out';
-            observer.observe(item);
+        document.querySelectorAll('.about-card, .team-member').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.8s ease-out';
+            observer.observe(element);
         });
 
-        // Smooth scroll functionality
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.about-hero');
+            const scrolled = window.pageYOffset;
+            hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
         });
     </script>
 </body>
 </html>
+
